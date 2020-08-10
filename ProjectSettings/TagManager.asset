@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Floor
+  - cutAttack
+  - CameraShake
+  - Enemy
+  - Katana
+  - PlayerBody
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - Player
+  - Enemy
+  - Shuriken
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 3008291487
+    locked: 0
+  - name: Trail
+    uniqueID: 2942306909
+    locked: 0
+  - name: Hat
+    uniqueID: 3571320091
+    locked: 0
+  - name: Light
+    uniqueID: 4271556485
+    locked: 0
+  - name: Enemy
+    uniqueID: 1135310917
+    locked: 0
