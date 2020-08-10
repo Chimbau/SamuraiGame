@@ -12,12 +12,10 @@ public class CutAttack : MonoBehaviour
     private bool Attackin;
 
     public float cutAttackForce;
-
     public Transform katanaPosition;
-
     public TrailRenderer cutAttackTrail;
 
-    private float cutAttackCooldownTime;
+    public float cutAttackCooldownTime;
     public float cutAttackCooldown;
 
     // Start is called before the first frame update
@@ -62,7 +60,6 @@ public class CutAttack : MonoBehaviour
                 cutAttackCooldownTime -= Time.deltaTime;
         }   
     }
-
 
     public bool isAttackin(){
         return Attackin;

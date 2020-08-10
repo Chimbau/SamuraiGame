@@ -5,19 +5,21 @@ using UnityEngine.UI;
 
 public class CooldownUIscript : MonoBehaviour
 {
-
-    private Slider cutAttackSlider;
+    public Slider cutAttackSlider;
+    public Slider deflectSlider;
 
     private CutAttack cutAttack;
+    private Deflect deflect;
 
-    private void Start() {
-        //cutAttackSlider = GetComponentInChildren
+    void Start() {
         cutAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<CutAttack>();
+        deflect = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Deflect>();
     }
 
     // Update is called once per frame
     void Update()
-    {
-        cutAttackSlider.value = 0.5f;
+    {     
+        cutAttackSlider.value = cutAttack.getCutAttackCooldownTime() / cutAttack.cutAttackCooldown; 
+        deflectSlider.value = deflect.getDeflectCooldownTime() / deflect.deflectCooldown; 
     }
 }

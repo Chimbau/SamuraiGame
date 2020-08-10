@@ -8,12 +8,15 @@ public class Deflect : MonoBehaviour
     public bool Deflecting;
     public float deflectTime;
     public float startDeflectTime;
+    private float deflectCooldownTime;
+    public float deflectCooldown;
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("q")){
+        if(Input.GetKeyDown("q") && deflectCooldownTime <= 0){
             Deflecting = true;
+            deflectCooldownTime = deflectCooldown;
             deflectTime = startDeflectTime;
         }
 
@@ -25,9 +28,17 @@ public class Deflect : MonoBehaviour
                 deflectTime -= Time.deltaTime;
             }
         }
+
+        if(deflectCooldownTime > 0){
+            deflectCooldownTime -= Time.deltaTime;
+        }
     }
 
     public bool isDeflecting(){
         return Deflecting;
+    }
+
+    public float getDeflectCooldownTime(){
+        return deflectCooldownTime;
     }
 }
