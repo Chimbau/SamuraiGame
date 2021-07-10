@@ -16,8 +16,8 @@ public class TeleportDagger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 firePoint = (mousePosition - transform.position).normalized;
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 firePoint = (mousePosition - (Vector2) transform.position).normalized;
 
         if(Input.GetKeyDown("e")){
            if(!activeDagger){

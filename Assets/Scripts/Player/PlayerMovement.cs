@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatIsGround;
     public float fallMultiplier;
     public float jumpUpMultiplier;
+
+    public GameObject doubleJumpParticles;
     private int doubleJump = 1;
 
     public CutAttack attackScript;
@@ -45,9 +47,7 @@ public class PlayerMovement : MonoBehaviour
         else{
             anime.SetBool("isWalking", false);
         }
-
-
-        
+   
         if (!attackScript.isAttackin()){
              rb.velocity = new Vector2(xAxis * speed, rb.velocity.y);
         }   
@@ -59,20 +59,29 @@ public class PlayerMovement : MonoBehaviour
         if(Grounded && doubleJump <= 0){
             doubleJump += 1;
         }
-
         if (Grounded && jump){
             rb.velocity = Vector2.up * jumpForce;
         }
         else if (doubleJump > 0 && jump){
             rb.velocity = Vector2.up * jumpForce;
+            Instantiate(doubleJumpParticles, transform.position, doubleJumpParticles.transform.rotation);
             doubleJump -= 1;
         }
 
+        if(!Grounded){
+            anime.SetBool("isJumping", true);
+        }
+        else{
+            anime.SetBool("isJumping", false);
+        }
+
+        //Gravity multiplier
         if (rb.velocity.y < 0){
             rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
         else if (rb.velocity.y > 0){
             rb.velocity += Vector2.up * Physics2D.gravity.y * (jumpUpMultiplier - 1) * Time.deltaTime;
         }
+
     }
 }

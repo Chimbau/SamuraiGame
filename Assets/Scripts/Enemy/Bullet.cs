@@ -37,10 +37,7 @@ public class Bullet : MonoBehaviour
         if(other.gameObject.tag == "Enemy" && wasDeflected){
             other.gameObject.GetComponent<EnemyDeath>().Death();
             Destroy(gameObject);
-        }
-
-
-      
+        }  
     }
 
 }

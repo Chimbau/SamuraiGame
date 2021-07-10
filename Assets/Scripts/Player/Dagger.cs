@@ -14,8 +14,7 @@ public class Dagger : MonoBehaviour
     private void Update() {
         if(rb.velocity != Vector2.zero){
             transform.right = rb.velocity;
-        }
-        
+        }  
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
